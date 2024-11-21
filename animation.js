@@ -88,7 +88,6 @@ function showArray(element, index) {
   }' ' >${element}</div>
   `;
 
-
   container.insertAdjacentHTML("beforeend", html);
   const boxes = document.querySelectorAll(".box");
   if (boxes[j] && boxes[j + 1]) {
