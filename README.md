@@ -6,4 +6,3 @@ Dette projekt er en visuel præsentation af Bubble Sort-algoritmen. Programmet s
 Vi håber at I bliver glad for at bruge vores applikation!
 
 - Yaw, Lukas og Nikolaj
-
