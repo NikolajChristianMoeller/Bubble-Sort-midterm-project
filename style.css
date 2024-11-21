@@ -25,3 +25,7 @@ body {}
 .inputField {
     background-color: aliceblue;
 }
+
+.sortedElement {
+    background-color: rgb(111, 184, 38);
+}

@@ -5,8 +5,10 @@ let gameInterval;
 let i = 0;
 let j = 0;
 let array = [];
+let sortedElements = [];
 
 function init() {
+  reset();
   const button = document.querySelector("#start-button");
   const inputField = document.querySelector('.inputField');
   inputField.addEventListener('change', launchGenerateArray);
@@ -16,15 +18,24 @@ function init() {
 }
 
 function startSort() {
+  clearInterval(gameInterval)
   gameInterval = setInterval(() => {
     bubbleSort(array);
     renderArray();
   }, 2000);
 }
 
+function reset() {
+  i = 0;
+  j = 0;
+  array = [];
+  sortedElements = [];
+}
+
 function bubbleSort(array) {
   if (isSorted(array)) {
     clearInterval(gameInterval);
+    renderArray();
     return;
   }
   if (i < array.length - 1) {
@@ -48,19 +59,24 @@ function compareValues() {
   }
   j++;
   renderArray();
-
   if (j >= array.length - 1 - i) {
+    sortedElements.push(array[j])
+    console.log(sortedElements);
     j = 0;
     i++;
   }
 }
 
-function showArray(element) {
+ // View
+function showArray(element, index) {
   const container = document.querySelector("#container");
 
   const html = /*html*/ `
-  <div class="box" >${element}</div>
+  <div class='box ${index > array.length - i - 1 ? "sortedElement" : " "} ${
+    isSorted(array) ? "sortedElement" : ""
+  }' ' >${element}</div>
   `;
+
 
   container.insertAdjacentHTML("beforeend", html);
   const boxes = document.querySelectorAll(".box");
@@ -77,6 +93,7 @@ function renderArray() {
 }
 
 function launchGenerateArray(event) {
+  reset();
   event.preventDefault();
   const arraylength = event.target.value
   console.log(event.target.value);
@@ -87,7 +104,6 @@ function generateArray(arraylength) {
   array = [];
   for (let i = 0; i < arraylength; i++) {
     const randomNumber = Math.floor(Math.random() * 50);
-    console.log(randomNumber);
     array.push(randomNumber);
   }
   renderArray();
@@ -97,4 +113,10 @@ function generateArray(arraylength) {
 // 1. Tilføj input til array længde DONE
 // 2. På change eventlistener skal inputtet generere et random array med dets længde DONE
 // 3. Vi skal finde ud af visualiseringen af vores sortering
-//  F.eks., ved ombytning af tal skal tallene fades ud og ind 
+//  F.eks., ved ombytning af tal skal tallene fades ud og ind
+
+// Evt. problem?
+// 2. Når vi bruger vores array input felt stopper algoritmen ikke
+// 2. ... hvis den allerede er i gang.
+// 3. Hvis vi har dubletter (eks. 2 gange af 44), vil begge elementer blive grønne
+// 3. ... når det ene af den er blevet et sorted element
