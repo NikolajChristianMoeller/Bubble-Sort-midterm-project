@@ -7,6 +7,7 @@ let j = 0;
 let array = [];
 let sortedElements = [];
 
+// #Region Controller
 function init() {
   reset();
   const button = document.querySelector("#start-button");
@@ -32,6 +33,7 @@ function reset() {
   sortedElements = [];
 }
 
+// #region Model
 function bubbleSort(array) {
   if (isSorted(array)) {
     clearInterval(gameInterval);
@@ -67,7 +69,16 @@ function compareValues() {
   }
 }
 
- // View
+function generateArray(arraylength) {
+  array = [];
+  for (let i = 0; i < arraylength; i++) {
+    const randomNumber = Math.floor(Math.random() * 50);
+    array.push(randomNumber);
+  }
+  renderArray();
+}
+
+ // #Region view
 function showArray(element, index) {
   const container = document.querySelector("#container");
 
@@ -99,24 +110,3 @@ function launchGenerateArray(event) {
   console.log(event.target.value);
   generateArray(arraylength);
 }
-
-function generateArray(arraylength) {
-  array = [];
-  for (let i = 0; i < arraylength; i++) {
-    const randomNumber = Math.floor(Math.random() * 50);
-    array.push(randomNumber);
-  }
-  renderArray();
-}
-
-
-// 1. Tilføj input til array længde DONE
-// 2. På change eventlistener skal inputtet generere et random array med dets længde DONE
-// 3. Vi skal finde ud af visualiseringen af vores sortering
-//  F.eks., ved ombytning af tal skal tallene fades ud og ind
-
-// Evt. problem?
-// 2. Når vi bruger vores array input felt stopper algoritmen ikke
-// 2. ... hvis den allerede er i gang.
-// 3. Hvis vi har dubletter (eks. 2 gange af 44), vil begge elementer blive grønne
-// 3. ... når det ene af den er blevet et sorted element
