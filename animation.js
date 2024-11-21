@@ -4,13 +4,13 @@ let gameInterval;
 
 let i = 0;
 let j = 0;
-let array = [5, 3, 7, 9, 4];
+let array = [];
 
 function init() {
   const button = document.querySelector("#start-button");
-  // const inputField = document.querySelector('.inputField');
-  // inputField.addEventListener('change', generateArray);
-
+  const inputField = document.querySelector('.inputField');
+  inputField.addEventListener('change', launchGenerateArray);
+  generateArray(6)
   button.addEventListener("click", startSort);
   renderArray();
 }
@@ -76,7 +76,25 @@ function renderArray() {
   array.forEach(showArray);
 }
 
-// function generateArray(event) {
-//     event.preventDefault();
-//     console.log(event);
-// }
+function launchGenerateArray(event) {
+  event.preventDefault();
+  const arraylength = event.target.value
+  console.log(event.target.value);
+  generateArray(arraylength);
+}
+
+function generateArray(arraylength) {
+  array = [];
+  for (let i = 0; i < arraylength; i++) {
+    const randomNumber = Math.floor(Math.random() * 50);
+    console.log(randomNumber);
+    array.push(randomNumber);
+  }
+  renderArray();
+}
+
+
+// 1. Tilføj input til array længde DONE
+// 2. På change eventlistener skal inputtet generere et random array med dets længde DONE
+// 3. Vi skal finde ud af visualiseringen af vores sortering
+//  F.eks., ved ombytning af tal skal tallene fades ud og ind 
