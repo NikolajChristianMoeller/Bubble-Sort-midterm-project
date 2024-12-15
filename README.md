@@ -1,4 +1,4 @@
-# Bubble-Sort-midterm-project
+# Bubble Sort Midterm Project
 
 # Oversigt
 
