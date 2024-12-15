@@ -1,14 +1,17 @@
 # Bubble Sort Midterm Project
 
-# Oversigt
-
-Den deployede udgave på GitHub Pages:
+Link to the deployed version on GitHub Pages:
 
 https://nikolajchristianmoeller.github.io/bubble-sort-midterm-project/
 
+This project is a visual presentation of the bubble sort algorithm.
 
-Dette projekt er en visuel præsentation af Bubble Sort-algoritmen. Programmet sorterer en række tal, som vises som farverige bokse på skærmen. Hver del af sorteringsprocessen er animeret, så brugeren kan følge med i, hvordan algoritmen sammenligner og bytter elementer, indtil rækken er fuldt sorteret. Man skal kigge godt efter for at se at tallene ændrer sig.
+The program sorts a series of numbers, which are displayed as colorful boxes on the screen.
 
-Vi håber at I bliver glad for at bruge vores applikation!
+Each part of the sorting process is animated, so the user can follow how the algorithm compares and swaps elements until the list is fully sorted.
 
-- Yaw, Lukas og Nikolaj
+Pay close attention to see the numbers change.
+
+We hope you enjoy our application.
+
+Yaw, Lukas, and Nikolaj
